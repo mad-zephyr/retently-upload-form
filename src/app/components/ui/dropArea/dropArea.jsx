@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { ReactComponent as UploadIcon } from './assets/upload.svg'
+
+import { ReactComponent as UploadIcon } from './assets/cloud-upload.svg'
+
 import cn from 'classnames'
 import styles from './dropArea.module.sass'
 
@@ -36,7 +38,7 @@ const DropArea = (props) => {
         multiple
         accept="*"
       />
-      <UploadIcon width={34} />
+      <span><UploadIcon /></span>
       <div className={styles.file__title}> Drag and drop files here </div>
       <div className={styles.file__subtitle}> or </div>
       <div className={styles.file__btn}> browse </div>

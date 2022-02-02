@@ -1,23 +1,25 @@
+@use '../../../global/colors'
+
 .file
   display: flex
-  row-gap: 8px
   flex-direction: column
-  align-items: center
-  justify-content: center
+  align-items: center 
+  padding: 25px
 
   flex-grow: 1
-  min-height: 140px
-  height: 140px
+  min-height: 139px
+  height: 139px
 
   text-align: center
-  background: #F7F7F7
-  border: 2px dashed #EDEDED
+  background: colors.$color-light-grey
+  border: 1px Dashed colors.$color-grey
 
   font-family: Open Sans
   line-height: 100% 
   text-align: center
   font-style: normal
   font-weight: 600
+  letter-spacing: 0.3px
   cursor: pointer
   transition: 0.3s all ease-in
   &:hover
@@ -27,11 +29,28 @@
 
   &__drag
     border: 2px dashed #727272af
-  &__title  
-    font-size: 15px
-    color: #000000
+  &__title   
+    color: colors.$color-black
+    font-family: "Open Sans"
+    font-size: 14px
+    font-weight: 600
+    letter-spacing: 0.1px
+    line-height: 20px
+    text-align: center 
+    margin-bottom: 3px
+  &__subtitle
+    font-family: "Open Sans"
+    font-size: 13px 
+    line-height: 20px
+    font-weight: 400
+    letter-spacing: 0.3px 
+    text-align: center
+    margin-bottom: 3px
   &__btn 
     font-size: 14px 
     color: #0096E6
   input
     display: none
+    & + span
+      margin-bottom: 5px
+      // height: 32px

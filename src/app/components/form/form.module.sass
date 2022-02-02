@@ -1,23 +1,32 @@
+@use '../../global/colors' as colors
 .form
   display: flex
   flex-direction: column
-  row-gap: 30px 
-  padding: 40px 30px
-  width: 50%
+  row-gap: 24px
+  padding: 32px 30px 40px
+  width: calc( 50% - 15px )
+  &__content
+    display: flex
+    width: 100%
+    flex-direction: column
+    row-gap: 40px 
   
   button
     font-family: Heebo
     font-style: normal
     font-weight: bold
+    font-size: 14px
+    font-weight: 900
+    letter-spacing: 0.3px
     font-size: 16px
     line-height: 100% 
     text-align: center 
-    color: #FFFFFF
+    color: colors.$color-white
     border: none
     color: white
     height: 48px
     min-height: 48px
-    background: black
+    background: colors.$color-black
 
 .setFiles
   display: flex
@@ -27,4 +36,4 @@
   &__wrapper
     display: flex
     flex-direction: column
-    row-gap: 20px
+    row-gap: 30px

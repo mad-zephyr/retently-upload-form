@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { validator } from '../../utils/validator'
 import validatorConfig from '../../utils/validatorConfig'
 
+import { ReactComponent as HTMLicon } from './icons/html_icon.svg'
+import { ReactComponent as CSSicon } from './icons/css_icon.svg'
+
 import Htag from '../htag/htag'
 import Input from '../ui/input/Input'
 import DropArea from '../ui/dropArea/dropArea'
@@ -16,18 +19,6 @@ const Form = () => {
       files: []
     })
   const [errors, setErrors] = useState({})
-
-  const colors = ['#EC6630', '#DF5C9C', '#69EBD0', '#FFCF99', '#7E78D2', '#CFD11A', '#111D4A', '#3590F3', '#64BDED']
-
-  const getRandomColors = () => {
-    const randomNumber = Math.round(Math.random() * (colors.length - 2) + 2)
-    return colors[randomNumber]
-  }
-
-  const getRandomProgress = () => {
-    const randomNumber = Math.round(Math.random() * (330 - 2) + 2)
-    return randomNumber
-  }
 
   const handleChangeMail = (e) => {
     setData(prevState => {
@@ -74,45 +65,44 @@ const Form = () => {
   }
 
   return (
-    <form className={styles.form}>
+    <div className={styles.form}>
       <Htag />
-      <Input
-        label={'Send files to this email:'}
-        value={data.email}
-        type={'mail'}
-        onChange={handleChangeMail}
-        placeholder={'Your mail'}
-        name={'mail'}
-        error={errors.email}
-      />
-      { data.files.length !== 0 &&
+      <form className={styles.form__content}>
+        <Input
+          label={'Send files to this email:'}
+          value={data.email}
+          type={'mail'}
+          onChange={handleChangeMail}
+          placeholder={'Your mail'}
+          name={'mail'}
+          error={errors.email}
+        />
         <div className={styles.setFiles}>
-        <div className={styles.setFiles__wrapper}>
+          <div className={styles.setFiles__wrapper}>
 
-            {data.files.map(files => {
-              return (
-                <UploadedFiles
-                  key={files.name}
-                  fileName={files?.name}
-                  progress={getRandomProgress() || 100} // Progress
-                  color={getRandomColors()}
-                  onDelete={handleDelete}
-                />
-              )
-            })}
+          <UploadedFiles
+            fileName='smart-layur-ui.css'
+            progress={100}
+            onDelete={handleDelete}
+          > <CSSicon/></UploadedFiles>
+          <UploadedFiles
+            fileName='ruddy-cream-task1.html'
+            progress={50}
+            onDelete={handleDelete}
+          > <HTMLicon/>  </UploadedFiles>
+          </div>
         </div>
-       </div>
-      }
-      <DropArea
-        label={'Drag and drop file here'}
-        onChange={handleUpload}
-        type={'file'}
-        name={'file'}
-      />
-      <button
-        disabled={!isValid}
-      >Send</button>
-    </form>
+        <DropArea
+          label={'Drag and drop file here'}
+          onChange={handleUpload}
+          type={'file'}
+          name={'file'}
+        />
+        <button
+          disabled={!isValid}
+        >Send</button>
+      </form>
+    </div>
   )
 }
 

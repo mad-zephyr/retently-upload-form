@@ -1,13 +1,13 @@
+@use '../../global/colors' as colors
 .files
   position: relative
   display: flex
   column-gap: 20px
   align-items: center
-  height: 38px
+  height: 36px
   background: transparentize(grey, 1)
   transition: 0.3s all ease
   &:hover
-    background: transparentize(grey, 0.95)
     .control
       svg
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1)
@@ -34,7 +34,7 @@
     font-size: 10px
     line-height: 1 
     text-align: center 
-    color: #FFFFFF
+    color: colors.$color-white
   &__type
     position: absolute
     top: 6px
@@ -45,18 +45,23 @@
     font-weight: bold
   &__wrapper
     display: flex
+    align-items: center
     justify-content: space-between
     flex-grow: 1
-    font-family: Open Sans
-    font-style: normal
-    font-weight: 600
+    font-family: "Open Sans"
     font-size: 14px
-    line-height: 100%
-    color: #000000
+    font-weight: 600
+    letter-spacing: 0.3px
+    line-height: 20px
+    color: colors.$color-black
   &__percent
-    color: #EC6630
+    color: colors.$color-orange
+    font-family: "Open Sans"
+    font-size: 13px
     font-weight: 600
-    font-size: 14px
+    letter-spacing: 0.3px
+    line-height: 20px
+    text-align: right
 
 .progress
   display: block
@@ -64,14 +69,20 @@
   bottom: 0
   right: 0
 
-  height: 2px
-  width: calc( 100% - 45px )
-  background: grey
+  height: 3px
+  width: calc( 100% - 48px )
+  background: colors.$color-light-grey
 
 .active
-  background: orange
+  background: colors.$color-orange
   height: 100%
   transition: 0.3s all ease
+  &__text
+    font-family: "Open Sans"
+    font-size: 13px
+    font-weight: 400 
+    text-align: right
+    margin-bottom: 9px
 
 .control
   display: flex
@@ -80,7 +91,6 @@
   width: 22px
   height: 22px
   cursor: pointer
-  // padding-right: 4px
   svg
     border-radius: 50%
     
